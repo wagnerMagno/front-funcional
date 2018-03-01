@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { SubmitArquivoComponent } from './submit-arquivo/submit-arquivo.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SubmitArquivoComponent
   ],
   imports: [
     BrowserModule
