@@ -1,1 +1,55 @@
-/* You can add global styles to this file, and also import other style files */
+.float-left-title h2{
+    text-align: center;
+    width: 75%;
+    position: absolute;
+}
+
+.imgUFCG{
+    float: left;
+    width: 35%;
+    margin-left: 3%;
+
+}
+
+body{
+    background-color: rgb(228, 228, 228);
+    height: 100%;
+    position: absolute;
+    width: 100%;
+
+}
+
+.titulo{
+    margin-top: 3% !important;
+
+}
+
+.dimensaoConteudo{
+    margin: auto ;
+    background-color: white;
+    width: 90%;
+    border: solid #d8d5d5 1px;
+    padding-top: 3%;
+}
+
+.titulo span{
+    margin-top: 2%;
+    float: left;
+    margin-left: 2%;
+}
+
+.conteudoPrincipal{
+    height: 60%;
+    position: absolute;
+    margin-left: 5%;
+}
+
+.divConteudo{
+    border: 1px solid #dedddd;
+    width: 50%;
+    text-align: center;
+    margin: 0 auto;
+    background-color: #eaeaea;
+    height: 75%;
+
+}

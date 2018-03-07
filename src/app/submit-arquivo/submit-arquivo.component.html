@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="br">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<title>Programação Funcional</title> 
+	</head>
+	<body id="body" class=" pt_BR">
+			 <div class="titulo dimensaoConteudo ">
+				 <div class="float-left imgUFCG">
+						<img src="https://www.google.com/a/cpanel/computacao.ufcg.edu.br/images/logo.gif?service=google_default"/>	
+				</div>
+				<div class="float-left ">
+					<h2>Programação Funcional</h2>
+				</div>
+			</div>
+				<div class="dimensaoConteudo conteudoPrincipal">
+					<div class="divConteudo">
+						<form #formulario="ngForm" (ngSubmit)="submissaoArquivo(formulario)" style="margin-top: 5%;">
+							<div class="form-group">
+								<label for="arquivo">Selecione seu arquivo</label>
+								<input type="file" ngModel class="form-control-file" name="arquivo" id="arquivo" style="margin-left: 35%;">
+							</div>
+								
+								<button type="submit" class="btn btn-primary">Submit</button>
+								
+						</form>
+					</div>
+				</div>
+			</body>
+</html>
