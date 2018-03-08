@@ -1,1 +1,25 @@
-<app-submit-arquivo></app-submit-arquivo>
+<div class="titulo dimensaoConteudo ">
+	<div class="float-left imgUFCG">
+		   <img src="https://www.google.com/a/cpanel/computacao.ufcg.edu.br/images/logo.gif?service=google_default"/>	
+   </div>
+   <div class="float-left ">
+	   <h2>Programação Funcional</h2>
+   </div>
+</div>
+<div class="dimensaoConteudo conteudoPrincipal">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li routerLinkActive="active">
+                    <a routerLink="/enviarArquivo">Enviar Arquivo</a>
+                </li>
+                <li routerLinkActive="active">
+                    <a routerLink="/visualizarResultado">Visualizar Resultado</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="divConteudo">
+        <router-outlet></router-outlet>
+    </div>
+</div>

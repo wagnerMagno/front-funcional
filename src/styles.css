@@ -39,14 +39,14 @@ body{
 }
 
 .conteudoPrincipal{
-    height: 60%;
     position: absolute;
     margin-left: 5%;
+    padding-bottom: 5%;
 }
 
 .divConteudo{
     border: 1px solid #dedddd;
-    width: 50%;
+    width: 60%;
     text-align: center;
     margin: 0 auto;
     background-color: #eaeaea;
