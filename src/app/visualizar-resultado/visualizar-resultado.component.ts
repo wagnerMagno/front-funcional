@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Input, Output} from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'app-visualizar-resultado',
@@ -7,13 +9,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VisualizarResultadoComponent implements OnInit {
 
-  constructor() { }
+  @Output()  result : any = {
+    listName : "",
+    studentId : "",
+    exceptions : "",
+    passed : "",
+    failed : "",
+    total : ""
+  };
+  constructor( private http: HttpClient) { }
 
   ngOnInit() {
+     
   }
 
-  getResultado(){
-    
+  dadosTarefa: any = {
+    studentId: '',
+    listNumber: ''
   }
+
+
+  getResultado(){
+    if(this.dadosTarefa.studentId && this.dadosTarefa.listNumber){
+
+      this.http.get('http://localhost:3000/submission?studentId=' 
+          + this.dadosTarefa.studentId+ '&listName=' + this.dadosTarefa.listNumber)
+      .map(res => res)
+      .subscribe(dados => {
+        console.log(dados);
+        this.result = dados;
+      }, erro => {
+        console.log(erro);
+      });
+
+    }
+  }  
 
 }
