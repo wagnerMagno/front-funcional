@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+import {Http, RequestOptions} from '@angular/http';
 
 @Component({
   selector: 'app-submit-arquivo',
@@ -9,17 +9,41 @@ import { HttpClient } from '@angular/common/http';
 })
 export class SubmitArquivoComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  dadosTarefa: any = {
+    studentSubmission: '',
+    studentId: '',
+    listNumber: ''
+  }
 
+  
+  constructor(private http: HttpClient) { }
+  
   ngOnInit() {
   }
 
-  submissaoArquivo(form){
-    console.log("fom >>>>", form.form.value.arquivo);
-    this.http.post("http://localhost:3000/submission", form.form.value.arquivo)
-    .subscribe(response => {
-      console.log("reponse ", response);
-    })
+   submitDate = new FormData();
+
+  submissaoArquivo(){
+    console.log("fom >>>>", this.dadosTarefa);
+    this.submitDate.set("studentSubmission", this.dadosTarefa.studentSubmission);
+      this.submitDate.set("studentId", this.dadosTarefa.studentId);
+      this.submitDate.set("listNumber", this.dadosTarefa.listNumber);
+      
+      console.log("studentSubmission >>>>", this.submitDate.get("studentSubmission"));
+      console.log("studentId >>>>", this.submitDate.get("studentId"));
+      console.log("listNumber >>>>", this.submitDate.get("listNumber"));
+
+    if(this.dadosTarefa.studentId && this.dadosTarefa.studentSubmission && this.dadosTarefa.listNumber){
+      
+    
+      
+      this.http.post("http://localhost:3000/submission", this.dadosTarefa)
+        .subscribe(response => {
+          console.log("reponse ", response);
+        }, erro => {
+          console.log(erro);
+        });
+    }
   }
 
 }
