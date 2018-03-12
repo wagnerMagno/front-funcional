@@ -39,11 +39,9 @@ export class SubmitArquivoComponent implements OnInit {
 
         headers.set('Accept', 'application/json');
         headers.delete('Content-Type');
-        // headers.set('Content-Type', 'multipart/form-data');
 
         if (this.dadosTarefa.studentId && this.dadosTarefa.studentSubmission && this.dadosTarefa.listNumber) {
 
-            console.log('adfasd', this.dadosTarefa);
             this.http.post('http://localhost:3000/submission', this.data, { headers })
                 .subscribe(response => {
                     if (response['message']) {

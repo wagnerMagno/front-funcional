@@ -45,9 +45,9 @@ export class VisualizarResultadoComponent implements OnInit {
                     console.log(response);
                     if (response.submission.length > 0) {
                         this.result = response.submission[0];
+                        this.temErro = false;
                     } else {
                         this.temErro = true;
-
                     }
 
                 }, (erro: HttpErrorResponse) => {
