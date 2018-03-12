@@ -6,7 +6,13 @@
 	<div class="form-group row">
 		<label style="text-align: left;" class="col-sm-4 col-form-label" for="arquivo">Selecione seu arquivo</label>
 		<div class="col-sm-8">
-			<input type="file" [(ngModel)]="dadosTarefa.studentSubmission" class="form-control-file" name="arquivo" id="arquivo" style="margin-left: 35%;">
+			<input
+				name="arquivo"
+				type="file" ngModel
+				class="form-control-file"
+				id="arquivo" style="margin-left: 35%;"
+				(change)="getFile($event)"
+				accept=".hs">
 		</div>
 	</div>
 
