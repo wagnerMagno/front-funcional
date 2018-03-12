@@ -2,7 +2,7 @@
 	<h4>Enviar Arquivo</h4>
 </div>
 
-<form #formulario="ngForm" (ngSubmit)="submissaoArquivo()" style="margin-top: 5%;">
+<form id="form-submission" #formulario="ngForm" (ngSubmit)="submissaoArquivo()">
 	<div class="form-group row">
 		<label style="text-align: left;" class="col-sm-4 col-form-label" for="arquivo">Selecione seu arquivo</label>
 		<div class="col-sm-8">
@@ -31,5 +31,8 @@
 	</div>
 		
 		<button type="submit" class="btn btn-primary">Submit</button>
+		<div *ngIf="response">
+			{{ response }}
+		</div>
 		
 </form>

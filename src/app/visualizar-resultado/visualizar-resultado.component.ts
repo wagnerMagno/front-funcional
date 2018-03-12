@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -22,7 +22,12 @@ export class VisualizarResultadoComponent implements OnInit {
         studentId: '',
         listNumber: ''
     };
-    constructor(private http: HttpClient) { }
+
+    temErro: boolean;
+
+    constructor(private http: HttpClient) {
+        this.temErro = false
+    }
 
     ngOnInit() {
 
@@ -33,16 +38,20 @@ export class VisualizarResultadoComponent implements OnInit {
     getResultado() {
         if (this.dadosTarefa.studentId && this.dadosTarefa.listNumber) {
 
-            this.http.get('http://localhost:3000/submission?studentId='
-                + this.dadosTarefa.studentId + '&listName=' + this.dadosTarefa.listNumber)
+            this.http.get(
+                `http://localhost:3000/submission?studentId=${this.dadosTarefa.studentId}&listName=${this.dadosTarefa.listNumber}`)
                 .map(res => res)
                 .subscribe((response: any) => {
                     console.log(response);
                     if (response.submission.length > 0) {
                         this.result = response.submission[0];
+                    } else {
+                        this.temErro = true;
+
                     }
-                }, erro => {
-                    console.log(erro);
+
+                }, (erro: HttpErrorResponse) => {
+                    this.temErro = true;
                 });
 
         }

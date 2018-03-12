@@ -16,7 +16,7 @@ export class SubmitArquivoComponent implements OnInit {
     };
     data: FormData;
 
-
+    response: string;
     constructor(private http: HttpClient) {
         this.data = new FormData();
 
@@ -46,7 +46,9 @@ export class SubmitArquivoComponent implements OnInit {
             console.log('adfasd', this.dadosTarefa);
             this.http.post('http://localhost:3000/submission', this.data, { headers })
                 .subscribe(response => {
-                    console.log('reponse ', response);
+                    if (response['message']) {
+                        this.response = response['message'];
+                    }
                 }, erro => {
                     console.log(erro);
                 });
